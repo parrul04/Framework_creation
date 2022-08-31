@@ -33,6 +33,13 @@ public class LoginSteps {
 	    System.out.println("************Login Successfully***************");
 	    
 	}
+	
+	@Then("Forget password link should displayed")
+	public void forget_password_link_should_displayed() throws InterruptedException {
+	   boolean result = lp.idDisplayed_ForgetPassword();
+	   Assert.assertTrue("Forget pasword link is not displayed", result);
+	   System.out.println("Forget password is displayed");
+	}
 
 	@When("User enters valid username {string}")
 	public void user_enters_valid_username(String email) {

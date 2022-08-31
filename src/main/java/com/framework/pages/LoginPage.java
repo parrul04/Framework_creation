@@ -9,7 +9,6 @@ import com.framework.utils.ConfigReader;
 
 public class LoginPage {
 	
-	
 
 	WebDriver driver;
 	Properties prop;
@@ -20,6 +19,7 @@ public class LoginPage {
 	private By signIn = By.id("btn_send");
 	private By dashboard = By.id("dashboard");
 	private By logout = By.xpath("//a[@class='logout hideOnMobile ng-star-inserted']");
+	private By forgetPassword = By.xpath("//main[@id='main']/section[@class='gradiantbg']/div[@class='container']//a[@href='/forgot-password']");
 	
 	public LoginPage(WebDriver driver) {
 		this.driver = driver;
@@ -52,7 +52,8 @@ public class LoginPage {
 		return driver.findElement(dashboard).isDisplayed();
 	}
 	
-	public void clickLogout() {
+	public void clickLogout() throws InterruptedException {
+		Thread.sleep(3000);
 		driver.findElement(logout).click();
 	}
 	
@@ -61,5 +62,10 @@ public class LoginPage {
 		sendPassword(password);
 		clickSignIn();
 		return new ShopCatagories(driver);
+	}
+	
+	public boolean idDisplayed_ForgetPassword()  throws InterruptedException {
+		Thread.sleep(2000);
+		return driver.findElement(forgetPassword).isDisplayed();
 	}
 }

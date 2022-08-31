@@ -1,5 +1,10 @@
 Feature: Biskane Login functionality
 
+@forgetPassword
+Scenario: Forget password link should dipalyed
+Given  User should be on login page https://qa.biskane.com/login
+Then Forget password link should displayed
+
 @login
 Scenario: Login with valid credentials
 Given User should be on login page https://qa.biskane.com/login
